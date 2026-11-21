@@ -1,1 +1,1069 @@
-# .nk
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRẦN ĐỀ QUÁN | Hải Sản Tươi Sống &amp; Không Gian Chồi Lá Miền Tây</title>
+  
+  <!-- Google Fonts: Merriweather & Be Vietnam Pro cho cảm giác mộc mạc, gần gũi miền Tây -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            woodDark: '#23170E',      // Nâu gỗ trầm ấm
+            woodMedium: '#3A2618',    // Nâu gỗ mộc
+            woodLight: '#5C3D28',     // Nâu tre nứa
+            leafGreen: '#2D5A27',     // Xanh lá tự nhiên miền Tây
+            leafLight: '#4A7C44',     // Xanh lá non
+            lanternGold: '#E59A24',   // Vàng ánh đèn lồng ấm áp
+            lanternBright: '#FBBF24', // Vàng rực rỡ
+            riceCream: '#FAF6EE',     // Màu kem gạo mộc mạc
+            sandBeige: '#EFE6D5',     // Nền cát/tre sáng
+            earthText: '#3E2C1C',     // Chữ nâu đậm dễ đọc
+            mutedEarth: '#6E5844'     // Chữ phụ nâu nhạt
+          },
+          fontFamily: {
+            serif: ['"Merriweather"', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-riceCream text-earthText font-sans antialiased selection:bg-lanternGold selection:text-woodDark overflow-x-hidden">
+
+  <!-- ==================== 1. THANH ĐIỀU HƯỚNG CỐ ĐỊNH (HEADER) ==================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-woodDark/95 backdrop-blur-md border-b border-woodLight/40 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-3.5 flex items-center justify-between">
+      <!-- Logo TRẦN ĐỀ QUÁN -->
+      <a href="#trang-chu" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-lanternGold to-amber-700 flex items-center justify-center shadow-md border border-lanternBright/50 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-house-flood-water text-woodDark text-lg"></i>
+        </div>
+        <div>
+          <span class="font-serif text-lg sm:text-xl font-black tracking-wide text-riceCream block leading-none">TRẦN ĐỀ QUÁN</span>
+          <span class="text-[11px] text-lanternBright font-medium block mt-1">Chồi Lá Miền Tây • Ấp Lâm Dồ</span>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-sandBeige">
+        <a href="#trang-chu" class="hover:text-lanternBright transition-colors py-2">Trang chủ</a>
+        <a href="#khong-gian" class="hover:text-lanternBright transition-colors py-2">Không gian</a>
+        <a href="#thuc-don" class="hover:text-lanternBright transition-colors py-2">Thực đơn Best-seller</a>
+        <a href="#dat-ban" class="hover:text-lanternBright transition-colors py-2">Đặt chồi / Đặt bàn</a>
+        <a href="#lien-he" class="hover:text-lanternBright transition-colors py-2">Liên hệ</a>
+      </nav>
+
+      <!-- Nút gọi nhanh & Menu Mobile -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a href="tel:0944900083" class="inline-flex items-center gap-2 bg-gradient-to-r from-lanternGold to-lanternBright hover:from-lanternBright hover:to-lanternGold text-woodDark font-bold text-xs sm:text-sm px-4 sm:px-5 py-2.5 sm:py-3 rounded-full shadow-lg shadow-lanternGold/25 transition-all transform hover:-translate-y-0.5">
+          <i class="fa-solid fa-phone-volume animate-pulse"></i>
+          <span>0944 900 083</span>
+        </a>
+
+        <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-xl bg-woodMedium border border-woodLight text-riceCream hover:text-lanternBright" aria-label="Mở menu">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-woodDark border-t border-woodLight/40 px-6 py-5 space-y-3 shadow-2xl">
+      <nav class="flex flex-col space-y-2 text-base font-medium text-sandBeige">
+        <a href="#trang-chu" class="mobile-nav-link hover:text-lanternBright py-2 border-b border-woodMedium">Trang chủ</a>
+        <a href="#khong-gian" class="mobile-nav-link hover:text-lanternBright py-2 border-b border-woodMedium">Không gian chồi lá</a>
+        <a href="#thuc-don" class="mobile-nav-link hover:text-lanternBright py-2 border-b border-woodMedium">Thực đơn Best-seller</a>
+        <a href="#dat-ban" class="mobile-nav-link hover:text-lanternBright py-2 border-b border-woodMedium">Đặt chồi / Đặt bàn</a>
+        <a href="#lien-he" class="mobile-nav-link hover:text-lanternBright py-2">Liên hệ &amp; Bản đồ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== 2. HERO BANNER ẤN TƯỢNG ==================== -->
+  <section id="trang-chu" class="relative min-h-[92vh] flex items-center pt-24 pb-16 px-4 sm:px-8 overflow-hidden bg-woodDark">
+    <!-- Ảnh nền thực tế chồi lá ven ao nước lung linh ánh đèn của Trần Đề Quán -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="image_c7538d.png" 
+        onerror="this.onerror=null;this.src='https://placehold.co/1600x900/23170E/E59A24?text=TRAN+DE+QUAN+-+Choi+La+Mien+Tay';"
+        alt="Không gian chồi lá nổi trên ao nước lung linh đèn lồng tại Trần Đề Quán" 
+        class="w-full h-full object-cover object-center"
+      />
+      <!-- Lớp phủ nâu gỗ ấm giúp chữ nổi bật và giữ trọn cảm giác mộc mạc -->
+      <div class="absolute inset-0 bg-gradient-to-r from-woodDark/95 via-woodDark/80 to-woodDark/45"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-woodDark via-transparent to-woodDark/60"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <!-- Cột nội dung chính -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-leafGreen/90 border border-leafLight/60 text-riceCream shadow-md">
+          <i class="fa-solid fa-leaf text-lanternBright text-xs"></i>
+          <span class="text-xs sm:text-sm font-medium tracking-wide">Ấp Lâm Dồ, Xã Trần Đề, Tỉnh Sóc Trăng</span>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-riceCream leading-tight">
+          TRẦN ĐỀ QUÁN
+          <span class="block text-xl sm:text-3xl font-normal italic text-lanternBright mt-3">
+            Hải sản tươi sống – Các món đồng quê – Không gian chồi lá miền Tây
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-sandBeige/95 max-w-2xl leading-relaxed">
+          Tận hưởng làn gió mát rượi từ mặt ao nước thanh bình, bước qua cây cầu gỗ mộc mạc vào những căn chồi lá riêng tư lung linh ánh đèn lồng và thưởng thức đặc sản trứ danh đất Trần Đề.
+        </p>
+
+        <!-- 2 Nút hành động chính -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <a href="#dat-ban" class="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-lanternGold to-lanternBright hover:from-lanternBright hover:to-lanternGold text-woodDark font-bold px-8 py-4 rounded-2xl text-base shadow-xl shadow-lanternGold/30 transition-all transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Đặt Chồi Ngay</span>
+          </a>
+          <a href="#thuc-don" class="inline-flex items-center justify-center gap-2.5 bg-woodMedium/85 hover:bg-woodMedium text-riceCream border border-lanternGold/60 font-semibold px-8 py-4 rounded-2xl text-base backdrop-blur-sm transition-all">
+            <i class="fa-solid fa-utensils text-lanternBright"></i>
+            <span>Xem Thực Đơn</span>
+          </a>
+        </div>
+
+        <!-- Thông tin nhanh dưới Hero -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-woodLight/50 text-sm">
+          <div class="flex items-center gap-3 text-sandBeige">
+            <div class="w-10 h-10 rounded-xl bg-leafGreen/40 border border-leafLight/40 flex items-center justify-center text-lanternBright shrink-0">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div>
+              <span class="text-xs text-sandBeige/70 block">Giờ mở cửa</span>
+              <strong class="text-riceCream">09:00 – 21:00 hằng ngày</strong>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 text-sandBeige">
+            <div class="w-10 h-10 rounded-xl bg-leafGreen/40 border border-leafLight/40 flex items-center justify-center text-lanternBright shrink-0">
+              <i class="fa-solid fa-water"></i>
+            </div>
+            <div>
+              <span class="text-xs text-sandBeige/70 block">Không gian đặc trưng</span>
+              <strong class="text-riceCream">Chồi lá ao nước &amp; Phòng lạnh</strong>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 text-sandBeige">
+            <div class="w-10 h-10 rounded-xl bg-leafGreen/40 border border-leafLight/40 flex items-center justify-center text-lanternBright shrink-0">
+              <i class="fa-solid fa-champagne-glasses"></i>
+            </div>
+            <div>
+              <span class="text-xs text-sandBeige/70 block">Dịch vụ tiệc</span>
+              <strong class="text-riceCream">Liên hoan • Sinh nhật • Tất niên</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thẻ hình ảnh nổi bật bên phải -->
+      <div class="lg:col-span-5">
+        <div class="bg-woodMedium/90 backdrop-blur-md border-2 border-lanternGold/40 rounded-3xl p-4 sm:p-5 shadow-2xl">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+            <img 
+              src="image_c75423.png" 
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/3A2618/FBBF24?text=Sanh+Tiec+Tren+Mat+Nuoc';"
+              alt="Sảnh tiệc lung linh ánh đèn trên mặt nước tại Trần Đề Quán" 
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-3 left-3 bg-leafGreen text-riceCream text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+              <i class="fa-solid fa-star text-lanternBright mr-1"></i> Điểm Hẹn Lý Tưởng
+            </div>
+          </div>
+          <div class="pt-4 px-1 flex items-center justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-lg font-bold text-riceCream">Không Gian Sông Nước Hữu Tình</h3>
+              <p class="text-xs text-sandBeige/80 mt-1">Chồi lá mát mẻ • Cầu gỗ bắc qua ao sen • Sảnh tiệc lớn</p>
+            </div>
+            <a href="#khong-gian" class="w-10 h-10 rounded-full bg-lanternGold text-woodDark flex items-center justify-center shrink-0 hover:scale-105 transition-transform" title="Xem thư viện ảnh">
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. THỰC ĐƠN BEST-SELLER & MÓN ĐẶC SẮC ==================== -->
+  <section id="thuc-don" class="py-20 sm:py-24 px-4 sm:px-8 bg-riceCream">
+    <div class="max-w-7xl mx-auto">
+      <!-- Tiêu đề -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-leafGreen font-bold bg-leafGreen/10 px-4 py-1.5 rounded-full">
+          <i class="fa-solid fa-fire text-lanternGold"></i> Tinh Hoa Ẩm Thực Trần Đề
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-woodDark">
+          Thực Đơn Best-Seller &amp; Đặc Sản Đồng Quê
+        </h2>
+        <p class="text-mutedEarth text-base sm:text-lg">
+          Tuyển chọn hải sản tươi sống đánh bắt trong ngày cùng những món nhậu đồng quê đậm đà bản sắc miền Tây Nam Bộ.
+        </p>
+      </div>
+
+      <!-- Khối 3 Món Best-Seller Hàng Đầu Nổi Bật -->
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-7">
+        <!-- Best Seller 1: Mực Tôm Tơ -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-lanternGold/60 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="relative aspect-[16/10] overflow-hidden bg-woodMedium">
+              <img 
+                src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=85" 
+                onerror="this.onerror=null;this.src='https://placehold.co/800x500/3A2618/FBBF24?text=Muc+Tom+To';"
+                alt="Mực Tôm Tơ đặc sản Trần Đề Quán" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-3 left-3 bg-gradient-to-r from-red-700 to-amber-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                <i class="fa-solid fa-crown text-lanternBright"></i> Best Seller #1
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-serif text-xl font-bold text-woodDark">Mực Tôm Tơ</h3>
+                <span class="text-xs font-bold text-leafGreen bg-leafGreen/10 px-3 py-1 rounded-full">Hải sản tươi</span>
+              </div>
+              <p class="text-sm text-mutedEarth mt-3 leading-relaxed">
+                Mực tươi giòn ngọt kết hợp tôm tơ sông nước đậm vị miền Tây, chế biến vừa lửa giữ trọn vị ngọt tự nhiên, chấm kèm muối ớt xanh trứ danh.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-sandBeige">
+            <span class="text-xs font-semibold text-woodLight">Phục vụ nóng tại chồi</span>
+            <button type="button" onclick="quickSelectDish('Mực Tôm Tơ')" class="text-sm font-bold text-leafGreen hover:text-woodDark inline-flex items-center gap-1.5 transition-colors">
+              <span>+ Đặt trước món này</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Best Seller 2: Ba Ba Om Chuối Đậu -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-lanternGold/60 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="relative aspect-[16/10] overflow-hidden bg-woodMedium">
+              <img 
+                src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=85" 
+                onerror="this.onerror=null;this.src='https://placehold.co/800x500/3A2618/FBBF24?text=Ba+Ba+Om+Chuoi+Dau';"
+                alt="Ba Ba Om Chuối Đậu đậm đà" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-3 left-3 bg-gradient-to-r from-red-700 to-amber-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                <i class="fa-solid fa-crown text-lanternBright"></i> Best Seller #2
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-serif text-xl font-bold text-woodDark">Ba Ba Om Chuối Đậu</h3>
+                <span class="text-xs font-bold text-leafGreen bg-leafGreen/10 px-3 py-1 rounded-full">Đặc sản đồng quê</span>
+              </div>
+              <p class="text-sm text-mutedEarth mt-3 leading-relaxed">
+                Thịt ba ba mềm ngọt, om chuối xanh bùi béo, đậu hũ vàng ươm cùng mẻ thơm lừng và lá tía tô, ăn kèm bún tươi cực kỳ bắt mồi.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-sandBeige">
+            <span class="text-xs font-semibold text-woodLight">Nồi om giữ nhiệt</span>
+            <button type="button" onclick="quickSelectDish('Ba Ba Om Chuối Đậu')" class="text-sm font-bold text-leafGreen hover:text-woodDark inline-flex items-center gap-1.5 transition-colors">
+              <span>+ Đặt trước món này</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Best Seller 3: Gà Hấp Mắm Nhĩ -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-lanternGold/60 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="relative aspect-[16/10] overflow-hidden bg-woodMedium">
+              <img 
+                src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=800&q=85" 
+                onerror="this.onerror=null;this.src='https://placehold.co/800x500/3A2618/FBBF24?text=Ga+Hap+Mam+Nhi';"
+                alt="Gà Hấp Mắm Nhĩ thơm lừng" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-3 left-3 bg-gradient-to-r from-red-700 to-amber-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                <i class="fa-solid fa-crown text-lanternBright"></i> Best Seller #3
+              </span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-serif text-xl font-bold text-woodDark">Gà Hấp Mắm Nhĩ</h3>
+                <span class="text-xs font-bold text-leafGreen bg-leafGreen/10 px-3 py-1 rounded-full">Món nhậu trứ danh</span>
+              </div>
+              <p class="text-sm text-mutedEarth mt-3 leading-relaxed">
+                Gà thả vườn chắc thịt hấp mắm nhĩ nguyên chất đậm đà, da giòn vàng óng, thịt ngọt thơm hương hành tím và tiêu sọ, xé phay chấm muối tiêu chanh.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-sandBeige">
+            <span class="text-xs font-semibold text-woodLight">Gà vườn tuyển chọn</span>
+            <button type="button" onclick="quickSelectDish('Gà Hấp Mắm Nhĩ')" class="text-sm font-bold text-leafGreen hover:text-woodDark inline-flex items-center gap-1.5 transition-colors">
+              <span>+ Đặt trước món này</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bộ lọc danh mục thực đơn mở rộng -->
+      <div class="mt-16 pt-12 border-t border-woodLight/20">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-woodDark">Các Nhóm Món Đặc Trưng Khác</h3>
+            <p class="text-sm text-mutedEarth">Đa dạng lựa chọn cho bữa cơm gia đình, tiệc liên hoan và nhậu lai rai</p>
+          </div>
+
+          <!-- Nút lọc danh mục -->
+          <div id="menu-filters" class="flex flex-wrap gap-2">
+            <button type="button" data-category="all" class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-leafGreen text-riceCream shadow transition-all">
+              Tất cả món
+            </button>
+            <button type="button" data-category="hai-san" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandBeige text-earthText hover:bg-woodLight hover:text-riceCream transition-all">
+              Hải sản tươi sống
+            </button>
+            <button type="button" data-category="dong-que" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandBeige text-earthText hover:bg-woodLight hover:text-riceCream transition-all">
+              Các món đồng quê
+            </button>
+            <button type="button" data-category="lau-nhau" class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandBeige text-earthText hover:bg-woodLight hover:text-riceCream transition-all">
+              Lẩu &amp; Món nhậu lai rai
+            </button>
+          </div>
+        </div>
+
+        <!-- Lưới hiển thị các món theo bộ lọc -->
+        <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Render bằng JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. KHÁM PHÁ KHÔNG GIAN & THƯ VIỆN ẢNH THỰC TẾ ==================== -->
+  <section id="khong-gian" class="py-20 sm:py-24 px-4 sm:px-8 bg-woodDark text-riceCream">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-lanternBright font-bold bg-woodMedium px-4 py-1.5 rounded-full border border-woodLight">
+          <i class="fa-solid fa-images"></i> Hình Ảnh Thực Tế Tại Quán
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-riceCream">
+          Không Gian Chồi Lá Miền Tây &amp; Sảnh Tiệc
+        </h2>
+        <p class="text-sandBeige/85 text-base sm:text-lg">
+          Thoáng mát tự nhiên bên ao nước và hồ sen, đáp ứng trọn vẹn từ những buổi lai rai riêng tư đến các bữa tiệc lớn ấm cúng.
+        </p>
+      </div>
+
+      <!-- 3 Khu Vực Nổi Bật Của Trần Đề Quán -->
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-woodMedium/90 border border-woodLight/60 rounded-3xl p-6 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-leafGreen text-lanternBright flex items-center justify-center text-xl shadow">
+            <i class="fa-solid fa-umbrella-beach"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-riceCream">Chồi Lá Riêng Tư Trên Ao Nước</h3>
+          <p class="text-sm text-sandBeige/85 leading-relaxed">
+            Hệ thống chồi riêng biệt bắc cầu gỗ trên mặt ao nước và hồ sen mát rượi, có rèm che lịch sự và ánh đèn vàng ấm cúng khi về đêm.
+          </p>
+        </div>
+
+        <div class="bg-woodMedium/90 border border-woodLight/60 rounded-3xl p-6 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-leafGreen text-lanternBright flex items-center justify-center text-xl shadow">
+            <i class="fa-solid fa-snowflake"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-riceCream">Phòng Lạnh Rộng Rãi Mát Mẻ</h3>
+          <p class="text-sm text-sandBeige/85 leading-relaxed">
+            Khu vực phòng lạnh sạch sẽ, rộng rãi, phù hợp tiếp khách đối tác, gia đình có trẻ nhỏ hoặc dùng bữa trưa mát mẻ giữa ngày nắng.
+          </p>
+        </div>
+
+        <div class="bg-woodMedium/90 border border-woodLight/60 rounded-3xl p-6 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-leafGreen text-lanternBright flex items-center justify-center text-xl shadow">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-riceCream">Sảnh Lớn Nhận Đặt Tiệc</h3>
+          <p class="text-sm text-sandBeige/85 leading-relaxed">
+            Sảnh tiệc thoáng đãng ngay trên mặt nước, chuyên nhận đặt tiệc liên hoan, sinh nhật, họp mặt gia đình và tất niên trọn gói.
+          </p>
+        </div>
+      </div>
+
+      <!-- Thư viện 7 hình ảnh thực tế người dùng đã tải lên (Bấm vào để phóng to Lightbox) -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Ảnh 1: Chồi lá nổi trên mặt ao lung linh ánh đèn đêm (image_c7538d.png) -->
+        <div onclick="openLightbox(0)" class="sm:col-span-2 lg:col-span-2 relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[16/10]">
+          <img src="image_c7538d.png" alt="Chồi lá nổi trên mặt ao lung linh ánh đèn đêm" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center opacity-90 group-hover:bg-lanternGold group-hover:text-woodDark transition-colors">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-5 right-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-lanternBright">Không gian đêm</span>
+            <h4 class="font-serif text-lg font-bold text-riceCream">Chồi Lá Nổi Trên Mặt Ao Lung Linh Ánh Đèn</h4>
+          </div>
+        </div>
+
+        <!-- Ảnh 2: Sảnh tiệc lớn trên mặt nước buổi tối (image_c75423.png) -->
+        <div onclick="openLightbox(1)" class="relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[4/3] sm:aspect-auto">
+          <img src="image_c75423.png" alt="Cầu gỗ dẫn vào sảnh tiệc lớn trên mặt nước" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h4 class="font-serif text-base font-bold text-riceCream">Sảnh Tiệc Lớn Trên Mặt Nước</h4>
+          </div>
+        </div>
+
+        <!-- Ảnh 3: Ao sen thanh bình cạnh khu nhà chồi (image_c753e2.png) -->
+        <div onclick="openLightbox(2)" class="relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[4/3] sm:aspect-auto">
+          <img src="image_c753e2.png" alt="Ao sen nở hoa thanh bình ngay cạnh khu chồi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h4 class="font-serif text-base font-bold text-riceCream">Ao Sen Thanh Bình</h4>
+          </div>
+        </div>
+
+        <!-- Ảnh 4: Dãy chồi lá riêng tư trên ao nước ban ngày (image_c753e9.png) -->
+        <div onclick="openLightbox(3)" class="relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[4/3]">
+          <img src="image_c753e9.png" alt="Dãy chồi lá thoáng mát nổi trên mặt ao" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h4 class="font-serif text-base font-bold text-riceCream">Dãy Chồi Riêng Tư Ven Ao</h4>
+          </div>
+        </div>
+
+        <!-- Ảnh 5: Toàn cảnh sảnh tiệc rực sáng bên ao (image_c75405.png) -->
+        <div onclick="openLightbox(4)" class="relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[4/3]">
+          <img src="image_c75405.png" alt="Không gian tổ chức liên hoan sinh nhật buổi tối" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h4 class="font-serif text-base font-bold text-riceCream">Khu Tiệc Liên Hoan &amp; Sinh Nhật</h4>
+          </div>
+        </div>
+
+        <!-- Ảnh 6: Toàn cảnh khu chồi lá lên đèn về đêm (image_c75447.png) -->
+        <div onclick="openLightbox(5)" class="relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[4/3]">
+          <img src="image_c75447.png" alt="Toàn cảnh dãy chồi lá rực rỡ ánh đèn về đêm" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h4 class="font-serif text-base font-bold text-riceCream">Toàn Cảnh Khu Chồi Về Đêm</h4>
+          </div>
+        </div>
+
+        <!-- Ảnh 7: Mặt tiền cổng chào TRẦN ĐỀ QUÁN (image_c753c4.png) -->
+        <div onclick="openLightbox(6)" class="relative rounded-3xl overflow-hidden group cursor-pointer border-2 border-woodLight/50 hover:border-lanternGold aspect-[4/3]">
+          <img src="image_c753c4.png" alt="Cổng chào mặt tiền TRẦN ĐỀ QUÁN tại Ấp Lâm Dồ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-woodDark/90 via-transparent to-transparent"></div>
+          <div class="absolute top-3 right-3 w-9 h-9 rounded-full bg-woodDark/75 text-lanternBright flex items-center justify-center">
+            <i class="fa-solid fa-expand text-sm"></i>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <h4 class="font-serif text-base font-bold text-riceCream">Cổng Chào TRẦN ĐỀ QUÁN</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. FORM ĐẶT CHỒI / ĐẶT BÀN NHANH ==================== -->
+  <section id="dat-ban" class="py-20 sm:py-24 px-4 sm:px-8 bg-sandBeige">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-white rounded-3xl shadow-2xl border border-woodLight/25 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        
+        <!-- Cột trái: Thông tin giữ chồi & Ưu đãi -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-woodDark via-woodMedium to-woodDark text-riceCream p-8 sm:p-10 flex flex-col justify-between">
+          <div class="space-y-5">
+            <span class="inline-block text-xs uppercase tracking-widest text-lanternBright font-bold bg-woodLight/40 px-3.5 py-1.5 rounded-full">
+              Giữ Chỗ Miễn Phí
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-black leading-tight">
+              Đặt Chồi Lá &amp; Đặt Bàn Nhanh
+            </h2>
+            <p class="text-sm sm:text-base text-sandBeige/90 leading-relaxed">
+              Đặt trước để quán chuẩn bị sẵn chồi lá ven ao mát mẻ, phòng lạnh hoặc lên thực đơn hải sản tươi sống chu đáo nhất cho đoàn của bạn.
+            </p>
+
+            <div class="space-y-4 pt-3">
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-leafGreen text-lanternBright flex items-center justify-center shrink-0">
+                  <i class="fa-regular fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-riceCream">Giờ Mở Cửa</h4>
+                  <p class="text-xs text-sandBeige/80 mt-0.5">09:00 sáng – 21:00 tối (Tất cả các ngày trong tuần)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-leafGreen text-lanternBright flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-riceCream">Địa Chỉ Quán</h4>
+                  <p class="text-xs text-sandBeige/80 mt-0.5">Ấp Lâm Dồ, Xã Trần Đề, Tỉnh Sóc Trăng</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-leafGreen text-lanternBright flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-riceCream">Hotline Đặt Chồi Nhanh</h4>
+                  <p class="text-sm text-lanternBright font-bold mt-0.5">
+                    <a href="tel:0944900083" class="hover:underline">0944 900 083</a> – <a href="tel:0949200723" class="hover:underline">0949 200 723</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-woodLight/40 text-xs text-sandBeige/80">
+            <i class="fa-solid fa-circle-check text-lanternBright mr-1.5"></i> Nhận đặt tiệc liên hoan, sinh nhật, tất niên theo yêu cầu.
+          </div>
+        </div>
+
+        <!-- Cột phải: Form nhập thông tin đặt chồi -->
+        <div class="lg:col-span-7 p-8 sm:p-10">
+          <form id="booking-form" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="guest-name" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Họ và tên khách *</label>
+                <input type="text" id="guest-name" required placeholder="Nhập tên của bạn..." class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-4 py-3 text-sm text-earthText outline-none transition-colors" />
+              </div>
+
+              <div>
+                <label for="guest-phone" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Số điện thoại / Zalo *</label>
+                <input type="tel" id="guest-phone" required placeholder="Ví dụ: 0944 900 083" class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-4 py-3 text-sm text-earthText outline-none transition-colors" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label for="booking-date" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Ngày đến *</label>
+                <input type="date" id="booking-date" required class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-3.5 py-3 text-sm text-earthText outline-none transition-colors" />
+              </div>
+
+              <div>
+                <label for="booking-time" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Giờ đến (09:00 - 21:00) *</label>
+                <select id="booking-time" required class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-3.5 py-3 text-sm text-earthText outline-none transition-colors">
+                  <option value="09:30">09:30 Sáng</option>
+                  <option value="11:00">11:00 Trưa</option>
+                  <option value="12:00">12:00 Trưa</option>
+                  <option value="16:30">16:30 Chiều mát</option>
+                  <option value="17:30">17:30 Chiều tối</option>
+                  <option value="18:30" selected>18:30 Tối (Lên đèn đẹp)</option>
+                  <option value="19:30">19:30 Tối</option>
+                  <option value="20:30">20:30 Tối</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="guest-count" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Số lượng khách *</label>
+                <select id="guest-count" required class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-3.5 py-3 text-sm text-earthText outline-none transition-colors">
+                  <option value="2 - 4 khách">2 – 4 khách</option>
+                  <option value="5 - 8 khách" selected>5 – 8 khách</option>
+                  <option value="10 - 15 khách">10 – 15 khách</option>
+                  <option value="Tiệc trên 15 khách">Tiệc trên 15 khách</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Chọn khu vực -->
+            <div>
+              <label for="booking-area" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Chọn khu vực ngồi *</label>
+              <select id="booking-area" required class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-4 py-3 text-sm text-earthText outline-none transition-colors">
+                <option value="Chồi lá trên ao nước">Chồi lá trên ao nước (Thoáng mát, riêng tư)</option>
+                <option value="Phòng lạnh rộng rãi">Phòng lạnh rộng rãi (Mát mẻ, yên tĩnh)</option>
+                <option value="Sảnh tiệc lớn">Sảnh tiệc lớn (Liên hoan, sinh nhật, tất niên)</option>
+              </select>
+            </div>
+
+            <!-- Gợi ý tick chọn nhanh 3 món Best-seller -->
+            <div>
+              <span class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Chọn nhanh món Best-seller đặt trước (Tùy chọn):</span>
+              <div class="flex flex-wrap gap-2.5">
+                <label class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-riceCream border border-woodLight/30 cursor-pointer hover:border-lanternGold text-xs sm:text-sm font-medium">
+                  <input type="checkbox" name="preorder-dish" value="Mực Tôm Tơ" class="accent-leafGreen w-4 h-4" />
+                  <span>Mực Tôm Tơ</span>
+                </label>
+                <label class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-riceCream border border-woodLight/30 cursor-pointer hover:border-lanternGold text-xs sm:text-sm font-medium">
+                  <input type="checkbox" name="preorder-dish" value="Ba Ba Om Chuối Đậu" class="accent-leafGreen w-4 h-4" />
+                  <span>Ba Ba Om Chuối Đậu</span>
+                </label>
+                <label class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-riceCream border border-woodLight/30 cursor-pointer hover:border-lanternGold text-xs sm:text-sm font-medium">
+                  <input type="checkbox" name="preorder-dish" value="Gà Hấp Mắm Nhĩ" class="accent-leafGreen w-4 h-4" />
+                  <span>Gà Hấp Mắm Nhĩ</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Ghi chú thêm -->
+            <div>
+              <label for="booking-note" class="block text-xs font-bold uppercase tracking-wider text-woodDark mb-2">Ghi chú thêm (Món đặt trước khác, trang trí sinh nhật...)</label>
+              <textarea id="booking-note" rows="2" placeholder="Nhập ghi chú yêu cầu của quý khách..." class="w-full bg-riceCream border border-woodLight/30 focus:border-leafGreen rounded-xl px-4 py-3 text-sm text-earthText outline-none transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-leafGreen to-leafLight hover:from-leafLight hover:to-leafGreen text-riceCream font-bold text-base shadow-xl shadow-leafGreen/25 transition-all transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Xác Nhận Đặt Chồi / Đặt Bàn
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. CHÂN TRANG (FOOTER) ==================== -->
+  <footer id="lien-he" class="bg-woodDark text-sandBeige pt-16 pb-10 px-4 sm:px-8 border-t-4 border-lanternGold">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-woodLight/40">
+      
+      <!-- Cột 1: Giới thiệu quán -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-lanternGold text-woodDark flex items-center justify-center font-bold text-lg">
+            <i class="fa-solid fa-house-flood-water"></i>
+          </div>
+          <div>
+            <span class="font-serif text-xl font-black text-riceCream block">TRẦN ĐỀ QUÁN</span>
+            <span class="text-xs text-lanternBright">Ẩm Thực Đồng Quê &amp; Hải Sản Tươi Sống</span>
+          </div>
+        </div>
+        <p class="text-sm text-sandBeige/80 leading-relaxed">
+          Hải sản tươi sống – Các món đồng quê – Không gian chồi lá miền Tây. Điểm hẹn lý tưởng cho gia đình, bạn bè và các buổi tiệc liên hoan tại Trần Đề, Sóc Trăng.
+        </p>
+        <div class="flex flex-wrap gap-2 pt-1">
+          <span class="text-xs bg-woodMedium border border-woodLight px-3 py-1.5 rounded-full text-lanternBright">Chồi lá ao nước</span>
+          <span class="text-xs bg-woodMedium border border-woodLight px-3 py-1.5 rounded-full text-lanternBright">Phòng lạnh rộng rãi</span>
+          <span class="text-xs bg-woodMedium border border-woodLight px-3 py-1.5 rounded-full text-lanternBright">Nhận đặt tiệc</span>
+        </div>
+      </div>
+
+      <!-- Cột 2: Thông tin liên hệ -->
+      <div class="lg:col-span-4 space-y-4">
+        <h3 class="font-serif text-lg font-bold text-riceCream">Thông Tin Liên Hệ</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-location-dot text-lanternBright mt-1"></i>
+            <span><strong>Địa chỉ:</strong> Ấp Lâm Dồ, Xã Trần Đề, Tỉnh Sóc Trăng</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-phone-volume text-lanternBright"></i>
+            <span><strong>Hotline đặt bàn:</strong> <a href="tel:0944900083" class="text-lanternBright font-bold hover:underline">0944 900 083</a> / <a href="tel:0949200723" class="text-riceCream font-semibold hover:underline">0949 200 723</a></span>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-regular fa-clock text-lanternBright"></i>
+            <span><strong>Giờ mở cửa:</strong> 09:00 sáng – 21:00 tối hằng ngày</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Cột 3: Bản đồ chỉ đường -->
+      <div class="lg:col-span-4 space-y-4">
+        <h3 class="font-serif text-lg font-bold text-riceCream">Bản Đồ Chỉ Đường</h3>
+        <div class="relative rounded-2xl overflow-hidden border border-woodLight h-44 bg-woodMedium group">
+          <img 
+            src="image_c753c4.png" 
+            onerror="this.onerror=null;this.src='https://placehold.co/600x300/3A2618/FBBF24?text=Ban+Do+Tran+De+Quan';"
+            alt="Đường vào Trần Đề Quán Ấp Lâm Dồ" 
+            class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-woodDark/60 flex flex-col items-center justify-center p-4 text-center">
+            <div class="w-10 h-10 rounded-full bg-lanternGold text-woodDark flex items-center justify-center shadow-lg mb-2">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <p class="text-xs font-bold text-riceCream">TRẦN ĐỀ QUÁN – Ấp Lâm Dồ, Trần Đề</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Tr%E1%BA%A7n+%C4%90%E1%BB%81+Qu%C3%A1n+Tr%E1%BA%A7n+%C4%90%E1%BB%81+S%C3%B3c+Tr%C4%83ng" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 bg-leafGreen hover:bg-leafLight text-riceCream text-xs font-bold px-4 py-2 rounded-full transition-colors">
+              <span>Mở Google Maps chỉ đường</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-sandBeige/70 gap-3">
+      <p>&copy; 2026 TRẦN ĐỀ QUÁN • Ấp Lâm Dồ, Xã Trần Đề, Sóc Trăng.</p>
+      <p>Hân hạnh được đón tiếp quý khách!</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL XÁC NHẬN ĐẶT CHỒI THÀNH CÔNG ==================== -->
+  <div id="booking-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-woodDark/85 backdrop-blur-sm">
+    <div class="bg-white border-2 border-lanternGold rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl text-center space-y-5 relative">
+      <button type="button" id="close-booking-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-sandBeige text-woodDark hover:bg-lanternGold flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="w-16 h-16 rounded-full bg-leafGreen/15 text-leafGreen flex items-center justify-center mx-auto text-3xl">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <div class="space-y-1.5">
+        <span class="text-xs font-bold uppercase tracking-widest text-leafGreen">Gửi Yêu Cầu Thành Công</span>
+        <h3 class="font-serif text-2xl font-black text-woodDark">Cảm Ơn Quý Khách!</h3>
+        <p class="text-sm text-mutedEarth">
+          Thông tin đặt chồi tại <strong>TRẦN ĐỀ QUÁN</strong> đã được ghi nhận. Quán sẽ liên hệ lại ngay để xác nhận vị trí đẹp nhất cho bạn.
+        </p>
+      </div>
+
+      <!-- Chi tiết phiếu đặt bàn -->
+      <div class="bg-riceCream border border-woodLight/25 rounded-2xl p-4 text-left text-xs sm:text-sm space-y-2 text-earthText">
+        <div class="flex justify-between border-b border-woodLight/15 pb-1.5">
+          <span class="text-mutedEarth">Khách hàng:</span>
+          <strong id="summary-name"></strong>
+        </div>
+        <div class="flex justify-between border-b border-woodLight/15 pb-1.5">
+          <span class="text-mutedEarth">Số điện thoại:</span>
+          <strong id="summary-phone"></strong>
+        </div>
+        <div class="flex justify-between border-b border-woodLight/15 pb-1.5">
+          <span class="text-mutedEarth">Thời gian:</span>
+          <strong id="summary-datetime"></strong>
+        </div>
+        <div class="flex justify-between border-b border-woodLight/15 pb-1.5">
+          <span class="text-mutedEarth">Số khách:</span>
+          <strong id="summary-guests"></strong>
+        </div>
+        <div class="flex justify-between border-b border-woodLight/15 pb-1.5">
+          <span class="text-mutedEarth">Khu vực:</span>
+          <strong id="summary-area" class="text-leafGreen"></strong>
+        </div>
+        <div id="summary-dishes-row" class="hidden pt-1">
+          <span class="text-mutedEarth block mb-0.5">Món đặt trước:</span>
+          <strong id="summary-dishes" class="text-woodDark"></strong>
+        </div>
+      </div>
+
+      <!-- Nút gọi xác nhận nhanh qua hotline -->
+      <div class="space-y-2.5 pt-1">
+        <a href="tel:0944900083" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-lanternGold to-lanternBright text-woodDark font-bold text-sm flex items-center justify-center gap-2 shadow-lg">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>Gọi Xác Nhận Nhanh: 0944 900 083</span>
+        </a>
+        <button type="button" id="done-booking-btn" class="w-full py-2.5 rounded-xl bg-sandBeige hover:bg-woodLight/20 text-earthText font-semibold text-xs transition-colors">
+          Đóng cửa sổ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== LIGHTBOX PHÓNG TO ẢNH KHÔNG GIAN ==================== -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-woodDark/95 backdrop-blur-md">
+    <button type="button" id="close-lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-woodMedium text-riceCream hover:bg-lanternGold hover:text-woodDark flex items-center justify-center text-lg transition-colors">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <button type="button" id="prev-lightbox" class="absolute left-3 sm:left-6 w-11 h-11 rounded-full bg-woodMedium/90 text-riceCream hover:bg-lanternGold hover:text-woodDark flex items-center justify-center transition-colors">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="max-w-4xl w-full text-center space-y-4">
+      <img id="lightbox-img" src="" alt="" class="max-h-[75vh] mx-auto rounded-2xl shadow-2xl border-2 border-woodLight object-contain" />
+      <div>
+        <h4 id="lightbox-title" class="font-serif text-lg sm:text-xl font-bold text-riceCream"></h4>
+        <p id="lightbox-caption" class="text-xs sm:text-sm text-sandBeige/80 mt-1"></p>
+      </div>
+    </div>
+
+    <button type="button" id="next-lightbox" class="absolute right-3 sm:right-6 w-11 h-11 rounded-full bg-woodMedium/90 text-riceCream hover:bg-lanternGold hover:text-woodDark flex items-center justify-center transition-colors">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- ==================== JAVASCRIPT XỬ LÝ TƯƠNG TÁC ==================== -->
+  <script>
+    // 1. Danh sách món ăn đặc sắc theo các nhóm (Hải sản tươi sống, Món đồng quê, Lẩu & Món nhậu)
+    const dishesData = [
+      {
+        name: "Tôm Sú Nướng Muối Ớt",
+        category: "hai-san",
+        categoryLabel: "Hải sản tươi sống",
+        desc: "Tôm sú biển Trần Đề tươi sống ướp muối ớt xiêm xanh nướng than hồng thơm nức mũi.",
+        image: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "Cua Biển Rang Me / Hấp Bia",
+        category: "hai-san",
+        categoryLabel: "Hải sản tươi sống",
+        desc: "Cua gạch, cua thịt chắc nịch chọn trực tiếp tại hồ, chế biến đậm đà hương vị miền biển.",
+        image: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "Ốc Len Xào Dừa",
+        category: "dong-que",
+        categoryLabel: "Các món đồng quê",
+        desc: "Ốc len béo ngậy hòa quyện nước cốt dừa xiêm sền sệt và mùi thơm rau răm đặc trưng miền Tây.",
+        image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "Cá Lóc Nướng Trui Cuốn Bánh Tráng",
+        category: "dong-que",
+        categoryLabel: "Các món đồng quê",
+        desc: "Cá lóc đồng nướng trui thơm lừng, cuốn cùng rau sống vườn nhà, bún tươi và mắm nêm.",
+        image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "Lẩu Hải Sản Chua Cay Trần Đề",
+        category: "lau-nhau",
+        categoryLabel: "Lẩu & Món nhậu lai rai",
+        desc: "Nước lẩu chua cay đậm đà đầy ắp mực, tôm, nghêu, cá tươi cùng các loại rau đồng quê.",
+        image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        name: "Ếch Xào Sả Ớt / Núp Lùm",
+        category: "lau-nhau",
+        categoryLabel: "Lẩu & Món nhậu lai rai",
+        desc: "Thịt ếch đồng săn chắc xào sả ớt cay nồng hoặc chiên giòn rơm sả lai rai cực bắt mồi.",
+        image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80"
+      }
+    ];
+
+    const menuGrid = document.getElementById('menu-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    function renderDishes(filter = 'all') {
+      const filtered = filter === 'all'
+        ? dishesData
+        : dishesData.filter(item => item.category === filter);
+
+      menuGrid.innerHTML = filtered.map(dish => `
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-woodLight/20 flex flex-col justify-between hover:shadow-lg transition-shadow">
+          <div>
+            <div class="relative aspect-[16/10] bg-woodMedium overflow-hidden">
+              <img 
+                src="${dish.image}" 
+                onerror="this.onerror=null;this.src='https://placehold.co/700x440/3A2618/FBBF24?text=${encodeURIComponent(dish.name)}';"
+                alt="${dish.name}" 
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-3 left-3 bg-woodDark/85 text-lanternBright text-[11px] font-bold px-3 py-1 rounded-full">
+                ${dish.categoryLabel}
+              </span>
+            </div>
+            <div class="p-5">
+              <h4 class="font-serif text-lg font-bold text-woodDark">${dish.name}</h4>
+              <p class="text-xs sm:text-sm text-mutedEarth mt-2 leading-relaxed">${dish.desc}</p>
+            </div>
+          </div>
+          <div class="px-5 pb-4 pt-2 border-t border-sandBeige/70 flex justify-end">
+            <button type="button" onclick="quickSelectDish('${dish.name}')" class="text-xs font-bold text-leafGreen hover:text-woodDark inline-flex items-center gap-1">
+              <span>+ Thêm vào ghi chú đặt bàn</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-leafGreen', 'text-riceCream', 'shadow');
+          b.classList.add('bg-sandBeige', 'text-earthText');
+        });
+        btn.classList.add('active', 'bg-leafGreen', 'text-riceCream', 'shadow');
+        btn.classList.remove('bg-sandBeige', 'text-earthText');
+        renderDishes(btn.dataset.category);
+      });
+    });
+
+    // 2. Chọn nhanh món từ thực đơn đưa xuống Form đặt bàn
+    function quickSelectDish(dishName) {
+      const checkboxes = document.querySelectorAll('input[name="preorder-dish"]');
+      let matchedCheckbox = false;
+
+      checkboxes.forEach(cb => {
+        if (cb.value === dishName) {
+          cb.checked = true;
+          matchedCheckbox = true;
+        }
+      });
+
+      if (!matchedCheckbox) {
+        const noteInput = document.getElementById('booking-note');
+        const currentNote = noteInput.value.trim();
+        if (!currentNote.includes(dishName)) {
+          noteInput.value = currentNote ? `${currentNote}, Đặt trước: ${dishName}` : `Đặt trước món: ${dishName}`;
+        }
+      }
+
+      document.getElementById('dat-ban').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 3. Thư viện ảnh thực tế Lightbox (7 ảnh của Trần Đề Quán)
+    const galleryPhotos = [
+      {
+        src: "image_c7538d.png",
+        title: "Chồi Lá Nổi Trên Mặt Ao Lung Linh Ánh Đèn",
+        caption: "Không gian chồi lá riêng tư bắc cầu gỗ trên mặt ao nước vào buổi tối tại Trần Đề Quán."
+      },
+      {
+        src: "image_c75423.png",
+        title: "Sảnh Tiệc Lớn Trên Mặt Nước",
+        caption: "Cầu gỗ dẫn vào khu sảnh tiệc thoáng mát trên mặt ao, phù hợp đoàn đông và tiệc liên hoan."
+      },
+      {
+        src: "image_c753e2.png",
+        title: "Ao Sen Thanh Bình Cạnh Khu Chồi",
+        caption: "Khung cảnh đồng quê yên ả với hồ sen xanh mát ngay bên cạnh khu nhà chồi."
+      },
+      {
+        src: "image_c753e9.png",
+        title: "Dãy Chồi Riêng Tư Ven Ao Nước",
+        caption: "Hệ thống các chồi riêng biệt trên mặt nước đón gió tự nhiên mát rượi."
+      },
+      {
+        src: "image_c75405.png",
+        title: "Khu Tiệc Liên Hoan, Sinh Nhật & Tất Niên",
+        caption: "Không gian rộng rãi, rực rỡ ánh đèn phục vụ các buổi tiệc gia đình và hội nhóm."
+      },
+      {
+        src: "image_c75447.png",
+        title: "Toàn Cảnh Khu Chồi Về Đêm",
+        caption: "Ánh đèn vàng ấm áp phản chiếu trên mặt nước tạo nên không gian thư giãn đậm chất miền Tây."
+      },
+      {
+        src: "image_c753c4.png",
+        title: "Cổng Chào Mặt Tiền TRẦN ĐỀ QUÁN",
+        caption: "Lối vào rộng rãi tại Ấp Lâm Dồ, Xã Trần Đề, Tỉnh Sóc Trăng."
+      }
+    ];
+
+    let currentPhotoIndex = 0;
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      updateLightboxContent();
+      lightboxModal.classList.remove('hidden');
+    }
+
+    function updateLightboxContent() {
+      const photo = galleryPhotos[currentPhotoIndex];
+      lightboxImg.src = photo.src;
+      lightboxImg.alt = photo.title;
+      lightboxTitle.textContent = photo.title;
+      lightboxCaption.textContent = photo.caption;
+    }
+
+    document.getElementById('close-lightbox').addEventListener('click', () => {
+      lightboxModal.classList.add('hidden');
+    });
+
+    document.getElementById('prev-lightbox').addEventListener('click', () => {
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+      updateLightboxContent();
+    });
+
+    document.getElementById('next-lightbox').addEventListener('click', () => {
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+      updateLightboxContent();
+    });
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) lightboxModal.classList.add('hidden');
+    });
+
+    // 4. Xử lý Form Đặt Chồi / Đặt Bàn Nhanh
+    const bookingForm = document.getElementById('booking-form');
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingDateInput = document.getElementById('booking-date');
+
+    // Thiết lập ngày mặc định là hôm nay
+    const today = new Date().toISOString().split('T')[0];
+    bookingDateInput.value = today;
+    bookingDateInput.min = today;
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('guest-name').value.trim();
+      const phone = document.getElementById('guest-phone').value.trim();
+      const dateRaw = document.getElementById('booking-date').value;
+      const time = document.getElementById('booking-time').value;
+      const guests = document.getElementById('guest-count').value;
+      const area = document.getElementById('booking-area').value;
+      const note = document.getElementById('booking-note').value.trim();
+
+      const selectedDishes = Array.from(document.querySelectorAll('input[name="preorder-dish"]:checked'))
+        .map(cb => cb.value);
+
+      if (note) {
+        selectedDishes.push(note);
+      }
+
+      const [year, month, day] = dateRaw.split('-');
+      const formattedDate = `${day}/${month}/${year}`;
+
+      document.getElementById('summary-name').textContent = name;
+      document.getElementById('summary-phone').textContent = phone;
+      document.getElementById('summary-datetime').textContent = `${time} • Ngày ${formattedDate}`;
+      document.getElementById('summary-guests').textContent = guests;
+      document.getElementById('summary-area').textContent = area;
+
+      const dishesRow = document.getElementById('summary-dishes-row');
+      if (selectedDishes.length > 0) {
+        dishesRow.classList.remove('hidden');
+        document.getElementById('summary-dishes').textContent = selectedDishes.join(', ');
+      } else {
+        dishesRow.classList.add('hidden');
+      }
+
+      bookingModal.classList.remove('hidden');
+    });
+
+    function closeBookingModal() {
+      bookingModal.classList.add('hidden');
+    }
+
+    document.getElementById('close-booking-modal').addEventListener('click', closeBookingModal);
+    document.getElementById('done-booking-btn').addEventListener('click', closeBookingModal);
+    bookingModal.addEventListener('click', (e) => {
+      if (e.target === bookingModal) closeBookingModal();
+    });
+
+    // 5. Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Khởi tạo danh sách món ăn khi tải trang
+    window.onload = function () {
+      renderDishes('all');
+    };
+  </script>
+</body>
+</html>
